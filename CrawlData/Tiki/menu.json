@@ -1,0 +1,51 @@
+{
+  "book": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "nha-sach-tiki",
+    "category": 8322
+  },
+  "tablet_phone": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "dien-thoai-may-tinh-bang",
+    "category": 1789
+  },
+  "man_fashion": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "thoi-trang-nam",
+    "category": 915
+  },
+  "man_shoes": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "giay-dep-nam",
+    "category": 1686
+  },
+  "woman_fashion": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "thoi-trang-nu",
+    "category": 931
+  },
+  "woman_shoes": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "giay-dep-nu",
+    "category": 1703
+  },
+  "fashion_accessories": {
+    "limit": 10,
+    "sort": "top_seller",
+    "page": 1,
+    "urlKey": "phu-kien-thoi-trang",
+    "category": 27498
+  }
+}

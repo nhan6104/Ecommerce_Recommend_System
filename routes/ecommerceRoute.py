@@ -5,12 +5,13 @@ import json
 ecommerce_route = Blueprint('user', __name__, url_prefix='/users')
 service = ecommerceService()
 # Create - POST
-@ecommerce_route.route('/search', methods=['GET'])
+@ecommerce_route.route('/search', methods=['GET', 'OPTIONS'])
 def search_product():
     try:
         query = request.args.get('query')
 
         products = service.searchByRecommendSystem(query, 20)
+        print(products)
         return jsonify({
             "message": "Get product successfully", 
             "products": products

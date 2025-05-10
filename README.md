@@ -53,13 +53,17 @@ This project demonstrates an end-to-end system for product classification and se
 ## 📂 Folder Structure
 ```
 ├── crawler/ # Scripts to crawl data from Tiki
-├── etl/ # ETL pipeline: extract, transform, load
-    ├── etl.py             # ETL class implementation
-    ├── crud.py            # CRUD operations for SQLite3
-    ├── products.csv       # Sample input data (optional)
-├── classifier/ # TF-IDF + SVM training and prediction
-├── recommender/ # Semantic search with embeddings + ChromaDB
-├── data/ # SQLite3 database and sample datasets
+├── ETL/ # ETL pipeline: extract, transform, load
+    ├── ETL.py             # ETL class implementation
+    ├── CRUD.py            # CRUD operations for SQLite3
+    ├── utils.py           # Helper function 
+├── models/       # Store SVM model and TF-IDF model 
+├── routes/       # Routes of app
+├── services/ # TF-IDF + SVM training and prediction
+    ├── classify.py           # E-commerce platforms for auto-tagging
+    ├── ecommerceService.py   # Serivce for recommend system 
+    ├── search.py             # Semantic search with embeddings 
+├── database/ #ChromaDB database and sample datasets
 └── README.md
 ```
 ## 📌 Requirements
@@ -70,3 +74,6 @@ This project demonstrates an end-to-end system for product classification and se
 
 ```bash
 pip install -r requirements.txt
+
+```bash
+python app.py
