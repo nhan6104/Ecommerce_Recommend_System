@@ -6,8 +6,8 @@ This project demonstrates an end-to-end system for product classification and se
 ### 🛠️ Data Collection
 ##### a. `crawlProductInfo(category_name)`
 - Sends a request to Tiki’s API to get product listings for a category.
-- Creates a new SQLite table (e.g., `book_2025_04_20`) and inserts all product JSON fields as text.
-- Category configurations (e.g., API params) are read from `menu.json`.
+- Creates a new SQLite table and inserts all product JSON fields as text.
+- Category configurations are read from `menu.json`.
 
 ##### b. `crawlComment(table_name_product)`
 - For each product in the given table, uses its `id`, `seller_id`, and `seller_product_id` to crawl review data.
