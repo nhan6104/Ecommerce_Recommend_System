@@ -37,13 +37,14 @@ This project demonstrates an end-to-end system for product classification and se
 - Enable natural language product search (e.g., "wireless mouse with silent clicks")
 
 ## 📂 Folder Structure
+```
 ├── crawler/ # Scripts to crawl data from Tiki
 ├── etl/ # ETL pipeline: extract, transform, load
 ├── classifier/ # TF-IDF + SVM training and prediction
 ├── recommender/ # Semantic search with embeddings + ChromaDB
 ├── data/ # SQLite3 database and sample datasets
 └── README.md
-
+```
 ## 📌 Requirements
 
 - Python 3.10+
