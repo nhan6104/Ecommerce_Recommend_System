@@ -3,13 +3,27 @@
 This project demonstrates an end-to-end system for product classification and semantic recommendation using real data crawled from [Tiki.vn](https://tiki.vn).
 
 ## 🚀 Features
+### 🛠️ Data Collection
+##### a. `crawlProductInfo(category_name)`
+- Sends a request to Tiki’s API to get product listings for a category.
+- Creates a new SQLite table (e.g., `book_2025_04_20`) and inserts all product JSON fields as text.
+- Category configurations (e.g., API params) are read from `menu.json`.
 
-### 🧪 Data Collection & ETL
-- Crawled product data from **Tiki.vn** using the `requests` library.
+##### b. `crawlComment(table_name_product)`
+- For each product in the given table, uses its `id`, `seller_id`, and `seller_product_id` to crawl review data.
+- Creates a new table (same name) in the `estimate_product` database.
+- Each review is saved as a row of serialized JSON.
+
+### 🧪 ETL
+- Crawled product data from **Tiki.vn** and stored it into SQLite3 database.
 - Designed a full **ETL pipeline**:
-  - **Extract**: Load raw data from **SQLite3**.
-  - **Transform**: Normalize nested JSON, cleanse inconsistent types, handle nulls, and standardize text.
-  - **Load**: Store structured data into a relational database (e.g., PostgreSQL).
+  - **Extract from CSV**: Use `extract()` to load raw product data from a local `.csv` file into the SQLite database.
+  - **Extract from SQLite**: Use loadDataFromTable() to retrieve and flatten data stored in SQLite after web crawling.
+  - **Transform**: 
+  - Flatten nested JSON objects.
+  - Convert booleans (`"true"`, `"false"`) and nulls to standardized formats.
+  - Fill missing values.
+  - Use `loadDataToCSV(table_name)` to export clean, tabular data into a `.csv` file.
 
 ### 🧠 Product Classification
 - Transformed product names into feature vectors using **TF-IDF**.
@@ -40,6 +54,9 @@ This project demonstrates an end-to-end system for product classification and se
 ```
 ├── crawler/ # Scripts to crawl data from Tiki
 ├── etl/ # ETL pipeline: extract, transform, load
+    ├── etl.py             # ETL class implementation
+    ├── crud.py            # CRUD operations for SQLite3
+    ├── products.csv       # Sample input data (optional)
 ├── classifier/ # TF-IDF + SVM training and prediction
 ├── recommender/ # Semantic search with embeddings + ChromaDB
 ├── data/ # SQLite3 database and sample datasets
