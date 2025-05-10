@@ -74,6 +74,8 @@ This project demonstrates an end-to-end system for product classification and se
 
 ```bash
 pip install -r requirements.txt
-
+```
+- Start app command:
 ```bash
 python app.py
+```
